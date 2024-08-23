@@ -24,44 +24,95 @@
 // Prendi gli elementi dal DOM
 const formElement = document.querySelector('form');
 let tableElement = document.querySelector('.table');
+const buttonElement = document.querySelector('button');
+const optionElement = document.querySelector('select');
+
 
 
 // Crea le variabili necessarie
 const numberCell = 100;
+const option = optionElement.value;
 
+console.log(option)
+
+
+optionElement.addEventListener('change', function(event) {
+    event.preventDefault();
+
+    buttonElement.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        if (option === 'Easy') {
+                for (let i = 0; i < numberCell; i++) {
+            
+                    // Dichiara un array cells
+                    let cells = [i];
+            
+                    // Monta quanto necessario
+                    cells[i] = document.createElement('div');
+                    cells[i].classList.add('cell');
+                    tableElement.appendChild(cells[i]);
+                    
+                    // Richiama dal DOM quanto appena creato
+                    const cellsElement = document.querySelectorAll('.cell'); 
+            
+                    // Monta quanto necessario
+                    cellsElement[i].innerHTML = `<p>${i + 1}</p>`;
+            
+                    // Crea un nuovo event listener  
+                    cellsElement[i].addEventListener('click', function() {
+            
+                        //Aggiungi la classe clicked
+                        cellsElement[i].classList.add('clicked');
+            
+                        // Richiama dal DOM quanto appena creato
+                        const numberElement = document.querySelectorAll('p');
+            
+                        //Controlla e stampa il numero
+                        const number = numberElement[i].textContent;
+                        console.log(number);
+                    })
+                }
+            } else {
+                console.log('default')
+            }
+    })
+            
+
+})
 
 // Imposta l'event listener
-formElement.addEventListener('click', function(event) {
-    event.preventDefault();
+// buttonElement.addEventListener('click', function(event) {
+//     event.preventDefault();
     
-    for (let i = 0; i < numberCell; i++) {
+//     for (let i = 0; i < numberCell; i++) {
 
-        // Dichiara un array cells
-        let cells = [i];
+//         // Dichiara un array cells
+//         let cells = [i];
 
-        // Monta quanto necessario
-        cells[i] = document.createElement('div');
-        cells[i].classList.add('cell');
-        tableElement.appendChild(cells[i]);
+//         // Monta quanto necessario
+//         cells[i] = document.createElement('div');
+//         cells[i].classList.add('cell');
+//         tableElement.appendChild(cells[i]);
         
-        // Richiama dal DOM quanto appena creato
-        const cellsElement = document.querySelectorAll('.cell'); 
+//         // Richiama dal DOM quanto appena creato
+//         const cellsElement = document.querySelectorAll('.cell'); 
 
-        // Monta quanto necessario
-        cellsElement[i].innerHTML = `<p>${i + 1}</p>`;
+//         // Monta quanto necessario
+//         cellsElement[i].innerHTML = `<p>${i + 1}</p>`;
 
-        // Crea un nuovo event listener  
-        cellsElement[i].addEventListener('click', function() {
+//         // Crea un nuovo event listener  
+//         cellsElement[i].addEventListener('click', function() {
 
-            //Aggiungi la classe clicked
-            cellsElement[i].classList.add('clicked');
+//             //Aggiungi la classe clicked
+//             cellsElement[i].classList.add('clicked');
 
-            // Richiama dal DOM quanto appena creato
-            const numberElement = document.querySelectorAll('p');
+//             // Richiama dal DOM quanto appena creato
+//             const numberElement = document.querySelectorAll('p');
 
-            //Controlla e stampa il numero
-            const number = numberElement[i].textContent;
-            console.log(number);
-        })
-    }
-})
+//             //Controlla e stampa il numero
+//             const number = numberElement[i].textContent;
+//             console.log(number);
+//         })
+//     }
+// })
