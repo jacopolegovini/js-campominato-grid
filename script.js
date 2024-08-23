@@ -8,12 +8,8 @@
 
 
 
-
-
-
-
 // Crea le funzioni
-// ! Come mai non funziona?
+// ? Come mai non funziona? Lavoraci su
 // function createAnElement(cells, tag, className) {
 //     // Dichiara un array cells
 //     let cells = [i];
@@ -34,7 +30,6 @@ let tableElement = document.querySelector('.table');
 const numberCell = 100;
 
 
-
 // Imposta l'event listener
 formElement.addEventListener('click', function(event) {
     event.preventDefault();
@@ -53,7 +48,7 @@ formElement.addEventListener('click', function(event) {
         const cellsElement = document.querySelectorAll('.cell'); 
 
         // Monta quanto necessario
-        cellsElement[i].innerHTML = `<p>${i}</p>`;
+        cellsElement[i].innerHTML = `<p>${i + 1}</p>`;
 
         // Crea un nuovo event listener  
         cellsElement[i].addEventListener('click', function() {
@@ -63,18 +58,10 @@ formElement.addEventListener('click', function(event) {
 
             // Richiama dal DOM quanto appena creato
             const numberElement = document.querySelectorAll('p');
-            console.log(numberElement[i])
+
+            //Controlla e stampa il numero
+            const number = numberElement[i].textContent;
+            console.log(number);
         })
     }
-
 })
-
-// Fai in modo che al click il numero venga stampato e la cella colorata 
-// for (let i = 0; i < numberCell; i++) {
-//     const cellsElement = document.querySelectorAll('.cell'); 
-
-//     cellsElement[i].addEventListener('click', function() {
-//         cellsElement[i].classList.add('clicked');
-//         console.log(cellsElement[i])
-//     })
-// }
