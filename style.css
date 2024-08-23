@@ -45,6 +45,11 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+}
+
+.clicked {
+    background-color: #FF7FAA;
 }
 
 main p {
