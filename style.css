@@ -64,6 +64,16 @@ main {
     cursor: pointer;
 }
 
+.cell-hard {
+    flex-basis: calc(600px / 7);
+    height: calc(600px / 7);
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
 .clicked {
     background-color: #FF7FAA;
 }
